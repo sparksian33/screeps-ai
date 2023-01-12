@@ -2,7 +2,8 @@ module.exports.loop = function () {
     //spawnCreep([WORK, MOVE, CARRY, MOVE], "Creep1");
     console.log(`Current game tick is ${Game.time}`);
     for(const i in Game.spawns) {
-        Game.spawns[i].spawnCreep([WORK, MOVE, CARRY], "Worker1");
+        Game.spawns[i].spawnCreep([WORK, MOVE, CARRY], "Worker" + Game.time);
+        console.log(Game.spawns[i]);
     }
 
     for (const i in Game.creeps) {

@@ -11,6 +11,9 @@ module.exports.loop = function () {
         if (creep.store.getFreeCapacity() === 0 || creep.memory.isUpgrading === true) {
             if (creep.room.controller) {
                 creep.memory.isUpgrading = true;
+                if (creep.store.getUsedCapacity() === 0) {
+                    creep.memory.isUpgrading = false;
+                }
                 if(creep.upgradeController(creep.room.controller) === ERR_NOT_IN_RANGE) {
                     creep.moveTo(creep.room.controller);
                 }
